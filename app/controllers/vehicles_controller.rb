@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
   def create
     vehicle = Vehicle.new(vehicle_params)
     if vehicle.save
-      render json: JSONAPI::Serializer.serialize(vehicle)
+      render_json_api_serializer vehicle
     else
       render json: vehicle.errors
     end
@@ -10,11 +10,11 @@ class VehiclesController < ApplicationController
 
   def show
     vehicle = Vehicle.find(params[:id])
-    render json: JSONAPI::Serializer.serialize(vehicle)
+    render_json_api_serializer vehicle
   end
 
   def index
-    render json: JSONAPI::Serializer.serialize(Vehicle.all, is_collection: true)
+    render_json_api_serializer(Vehicle.all, :ok, is_collection: true)
   end
 
   def vehicle_params

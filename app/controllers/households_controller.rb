@@ -2,7 +2,7 @@ class HouseholdsController < ApplicationController
   def create
     household = Household.new(household_params)
     if household.save
-      render json: JSONAPI::Serializer.serialize(household)
+      render_json_api_serializer household
     else
       render json: household.errors
     end
@@ -10,11 +10,11 @@ class HouseholdsController < ApplicationController
 
   def show
     household = Household.find(params[:id])
-    render json: JSONAPI::Serializer.serialize(household)
+    render_json_api_serializer household
   end
 
   def index
-    render json: JSONAPI::Serializer.serialize(Household.all, is_collection: true)
+    render_json_api_serializer Household.all, :ok, is_collection: true
   end
 
   def household_params
