@@ -30,21 +30,33 @@ Retrieves a single episode
     
     + body
 
-        {
-          "data": {
-            "type": "households",
-            "id": "1",
-            "attributes": {
-              "address": "12 Valley Farms Street ",
-              "zip": "20735",
-              "city": "Clinton",
-              "state": "Maryland",
-              "number-of-bedrooms": 2,
-              "created-at": "2016-04-07T19:51:57.918Z",
-              "updated-at": "2016-04-07T19:51:57.918Z"
+            {
+              "data": {
+                "type": "households",
+                  "id": "1",
+                  "attributes": {
+                    "address": "12 Valley Farms Street ",
+                    "zip": "20735",
+                    "city": "Clinton",
+                    "state": "Maryland",
+                    "number-of-bedrooms": 2,
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  },
+                  "relationships": {
+                    "people": {
+                      "data": [
+
+                      ]
+                    },
+                    "vehicles": {
+                      "data": [
+
+                      ]
+                    }
+                  }
+              }
             }
-          }
-        }
 
 ## Households [/households]
 
@@ -69,21 +81,33 @@ Retrieves a single episode
     
     + body
 
-        {
-          "data": {
-            "type": "households",
-            "id": "1",
-            "attributes": {
-              "address": "12 Valley Farms Street ",
-              "zip": "20735",
-              "city": "Clinton",
-              "state": "Maryland",
-              "number-of-bedrooms": 2,
-              "created-at": "2016-04-07T19:51:57.918Z",
-              "updated-at": "2016-04-07T19:51:57.918Z"
+            {
+              "data": {
+                "type": "households",
+                  "id": "1",
+                  "attributes": {
+                    "address": "12 Valley Farms Street ",
+                    "zip": "20735",
+                    "city": "Clinton",
+                    "state": "Maryland",
+                    "number-of-bedrooms": 2,
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  },
+                  "relationships": {
+                    "people": {
+                      "data": [
+
+                      ]
+                    },
+                    "vehicles": {
+                      "data": [
+
+                      ]
+                    }
+                  }
+              }
             }
-          }
-        }
 
 ### Get household list [GET]
 
@@ -95,15 +119,141 @@ Retrieves a single episode
         {
           "data": [{
             "type": "households",
-            "id": "1",
-            "attributes": {
-              "address": "12 Valley Farms Street ",
-              "zip": "20735",
-              "city": "Clinton",
-              "state": "Maryland",
-              "number-of-bedrooms": 2,
-              "created-at": "2016-04-07T19:51:57.918Z",
-              "updated-at": "2016-04-07T19:51:57.918Z"
-            }
+              "id": "1",
+              "attributes": {
+                "address": "12 Valley Farms Street ",
+                "zip": "20735",
+                "city": "Clinton",
+                "state": "Maryland",
+                "number-of-bedrooms": 2,
+                "created-at": "2016-04-07T19:51:57.918Z",
+                "updated-at": "2016-04-07T19:51:57.918Z"
+              },
+              "relationships": {
+                "people": {
+                  "data": [
+
+                  ]
+                },
+                "vehicles": {
+                  "data": [
+
+                  ]
+                }
+              }
+          }]
+        }
+
+# People
+
+## People [/people/{id}]
+
+### Get Single Person [GET]
+
+Retrieves a single episode
+
++ Parameters
+
+    + id (required, integer, id) - the person id
+
++ Request 200 (application/json)
++ Response 200 (application/json)
+    
+    + body
+
+        {
+          "data": {
+            "type": "people",
+              "id": "1",
+              "attributes": {
+                "first-name": "Jhon",
+                "last-name": "Doe",
+                "email": "test@test.com",
+                "age": 45,
+                "gender": "F",
+                "created-at": "2016-04-07T19:51:57.918Z",
+                "updated-at": "2016-04-07T19:51:57.918Z"
+              },
+              "relationships": {
+                "vehicles": { 
+                  "data": [] 
+                }
+              }
+
+          }
+        }
+
+## People [/people]
+
+### Create People [POST]
+
++ Request 200 (application/json)
+
+    + body
+
+        {
+          "person": {
+            "first_name": "Jhon",
+            "last_name": "Doe",
+            "email": "test@test.com",
+            "age": 45,
+            "gender": "F",
+            "household_id": 1
+          }
+        }
+
+
++ Response 201 (application/json)
+    
+    + body
+
+        {
+          "data": {
+            "type": "people",
+              "id": "1",
+              "attributes": {
+                "first-name": "Jhon",
+                "last-name": "Doe",
+                "email": "test@test.com",
+                "age": 45,
+                "gender": "F",
+                "created-at": "2016-04-07T19:51:57.918Z",
+                "updated-at": "2016-04-07T19:51:57.918Z"
+              },
+              "relationships": {
+                "vehicles": { 
+                  "data": [] 
+                }
+              }
+
+          }
+        }
+
+### Get person list [GET]
+
++ Request 200 (application/json)
++ Response 200 (application/json)
+    
+    + body
+
+        {
+          "data": [{
+            "type": "people",
+              "id": "1",
+              "attributes": {
+                "first-name": "Jhon",
+                "last-name": "Doe",
+                "email": "test@test.com",
+                "age": 45,
+                "gender": "F",
+                "created-at": "2016-04-07T19:51:57.918Z",
+                "updated-at": "2016-04-07T19:51:57.918Z"
+              },
+              "relationships": {
+                "vehicles": { 
+                  "data": [] 
+                }
+              }
+
           }]
         }

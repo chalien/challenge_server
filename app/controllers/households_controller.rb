@@ -1,5 +1,4 @@
 class HouseholdsController < ApplicationController
-
   def create
     household = Household.new(household_params)
     if household.save

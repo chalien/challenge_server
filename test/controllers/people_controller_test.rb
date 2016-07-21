@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe HouseholdsController do
+describe PeopleController do
   let(:fake_time) { Time.parse("2016-04-07T19:51:57.918Z") }
 
   before do
@@ -10,20 +10,20 @@ describe HouseholdsController do
   describe "GET: index" do
     before do
       Time.stub :now, fake_time do
-        FactoryGirl.create(:household, id: 1)
+        FactoryGirl.create(:person, id: 1)
       end
     end
 
-    it 'returns a list of household' do
+    it 'returns a list of person' do
       get :index
       response.shall_agree_upon('challenge.apib')
     end
   end
 
   describe "GET: show" do
-    let(:placehold) { FactoryGirl.create(:household, id: 1) }
+    let(:placehold) { FactoryGirl.create(:person, id: 1) }
 
-    it 'returns a household' do
+    it 'returns a person' do
       Time.stub :now, fake_time do
         get :show, { params: { id: placehold.id} }
       end
@@ -32,17 +32,18 @@ describe HouseholdsController do
   end
 
   describe "POST: create" do
-    let(:params) { FactoryGirl.attributes_for :household }
+    let(:household) { FactoryGirl.create :household, id: 1 }
+    let(:params) { FactoryGirl.attributes_for :person, household_id: household.id }
+
 
     before do
-      Household.any_instance.stubs(:id).returns(1)
+      Person.any_instance.stubs(:id).returns(1)
     end
 
-    it 'returns a household created'  do
+    it 'returns a person created'  do
       Time.stub :now, fake_time do
-        post :create, { params: { household: params }}
+        post :create, { params: { person: params }}
       end
-
       response.shall_agree_upon('challenge.apib')
     end
   end

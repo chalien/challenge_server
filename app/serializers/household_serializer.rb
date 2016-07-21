@@ -1,8 +1,4 @@
-require 'jsonapi-serializers'
-
-class HouseholdSerializer
-  include JSONAPI::Serializer
-
+class HouseholdSerializer < BaseSerializer
   attribute :address
   attribute :zip
   attribute :city
@@ -11,10 +7,6 @@ class HouseholdSerializer
   attribute :created_at
   attribute :updated_at
 
-  has_many :people
-  has_many :vehicles
-
-  def self_link
-    nil
-  end
+  has_many :people, include_links: false, include_data: true
+  has_many :vehicles, include_links: false, include_data: true
 end
