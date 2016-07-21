@@ -19,7 +19,7 @@ All routes support query parameters to refine responses
 
 ### Get Single household [GET]
 
-Retrieves a single episode
+Retrieves a single vehicle
 
 + Parameters
 
@@ -150,7 +150,7 @@ Retrieves a single episode
 
 ### Get Single Person [GET]
 
-Retrieves a single episode
+Retrieves a single person
 
 + Parameters
 
@@ -256,4 +256,128 @@ Retrieves a single episode
               }
 
           }]
+        }
+
+# Vehicles
+
+## Vehicle [/vehicles/{id}]
+
+### Get Single Vehicle [GET]
+
+Retrieves a single Vehicle 
+
++ Parameters
+
+    + id (required, integer, id) - the vehicle id
+
++ Request 200 (application/json)
++ Response 200 (application/json)
+    
+    + body
+
+        {
+          "data": {
+                "type": "vehicles",
+                  "id": "1",
+                  "attributes": {
+                    "make": "Fiat",
+                    "model": "Siena",
+                    "year": "2005",
+                    "license-plate": "KMU890",
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  }
+              }
+        }
+
+# Vehicles
+
+## Vehicle [/vehicles/{id}]
+
+### Get Single Vehicle [GET]
+
+Retrieves a single Vehicle 
+
++ Parameters
+
+    + id (required, integer, id) - the vehicle id
+
++ Request 200 (application/json)
++ Response 200 (application/json)
+    
+    + body
+
+            {
+              "data": {
+                "type": "vehicles",
+                  "id": "1",
+                  "attributes": {
+                    "make": "Fiat",
+                    "model": "Siena",
+                    "year": "2005",
+                    "license-plate": "KMU890",
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  }
+              }
+            }
+
+## Vehicles [/vehicles]
+
+### Create Vehicle [POST]
+
++ Request 200 (application/json)
+
+    + body
+
+        {
+          "vehicle": {
+            "make": "Fiat",
+            "model": "Siena",
+            "year": "2005",
+            "license_plate": "KMU890",
+            "person_id": 1
+          }
+        }
+
+
++ Response 201 (application/json)
+    
+    + body
+
+            {
+              "data": {
+                "type": "vehicles",
+                  "id": "1",
+                  "attributes": {
+                    "make": "Fiat",
+                    "model": "Siena",
+                    "year": "2005",
+                    "license-plate": "KMU890",
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  }
+              }
+            }
+
+### Get vehicle list [GET]
+
++ Request 200 (application/json)
++ Response 200 (application/json)
+    
+    + body
+
+        {
+          "data": [{
+                "type": "vehicles",
+                  "id": "1",
+                  "attributes": {
+                    "make": "Fiat",
+                    "model": "Siena",
+                    "year": "2005",
+                    "license-plate": "KMU890",
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  }
+              }]
         }

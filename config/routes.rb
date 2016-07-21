@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   constraints format: :json do
     resources :households, only: [:show, :create, :index]
     resources :people, only: [:show, :create, :index]
+    resources :vehicles, only: [:show, :create, :index]
   end
 end

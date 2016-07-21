@@ -6,5 +6,4 @@ class VehicleSerializer < BaseSerializer
   attribute :created_at
   attribute :updated_at
 
-  has_many :vehicles
 end
