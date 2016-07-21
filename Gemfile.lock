@@ -60,8 +60,6 @@ GEM
       descendants_tracker (~> 0.0.1)
     colorize (0.8.1)
     concurrent-ruby (1.0.2)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
     database_cleaner (1.5.3)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -76,8 +74,6 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
-    faker (1.6.5)
-      i18n (~> 0.5)
     ffi (1.9.14)
     flay (2.8.0)
       erubis (~> 2.7.0)
@@ -90,9 +86,10 @@ GEM
       sexp_processor (~> 4.4)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    hashdiff (0.3.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
+    jsonapi-serializers (0.13.0)
+      activesupport
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -111,9 +108,9 @@ GEM
     minitest (5.9.0)
     minitest-matchers (1.4.1)
       minitest (~> 5.0)
-    minitest-rails (3.0.0.rc1)
+    minitest-rails (3.0.0)
       minitest (~> 5.8)
-      railties (~> 5.0.0.rc1)
+      railties (~> 5.0)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     nio4r (1.2.1)
@@ -172,7 +169,6 @@ GEM
       reek (= 4.1.0)
       ruby_parser (~> 3.8)
       virtus (~> 1.0)
-    safe_yaml (1.0.4)
     sexp_processor (4.7.0)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -200,10 +196,6 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    webmock (2.0.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -217,21 +209,20 @@ DEPENDENCIES
   database_cleaner (~> 1.5)
   dotenv-rails (~> 2)
   factory_girl_rails (~> 4.6)
-  faker (~> 1.6, >= 1.6.2)
+  jsonapi-serializers
   listen (~> 3.0.5)
   minitest-matchers
-  minitest-rails (= 3.0.0.rc1)
+  minitest-rails
   mocha (~> 1.1)
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
   rubycritic (~> 2.9)
-  shoulda (~> 3.5)
+  shoulda
   shoulda-matchers (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
-  webmock (= 2.0.2)
 
 BUNDLED WITH
    1.11.2
