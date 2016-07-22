@@ -9,12 +9,23 @@ class PeopleController < ApplicationController
   end
 
   def show
-    person = Person.find(params[:id])
     render_json_api_serializer person
   end
 
   def index
     render_json_api_serializer(Person.all, :ok, is_collection: true)
+  end
+
+  def destroy
+    if person.destroy
+      render status: :no_content
+    end
+  end
+
+  private
+
+  def person
+    @person ||= Person.find(params[:id])
   end
 
   def person_params

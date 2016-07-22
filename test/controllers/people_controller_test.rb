@@ -20,6 +20,19 @@ describe PeopleController do
     end
   end
 
+  describe "DELETE: destroy" do
+    before do
+      Time.stub :now, fake_time do
+        @person = FactoryGirl.create(:person, id: 1)
+      end
+    end
+
+    it 'removes a person' do
+      delete :destroy, params: { id:  @person.id }
+      response.status.must_equal(204)
+    end
+  end
+
   describe "GET: show" do
     let(:placehold) { FactoryGirl.create(:person, id: 1) }
 
