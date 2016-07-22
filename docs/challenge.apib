@@ -258,9 +258,10 @@ Retrieves a single person
           }]
         }
 
+
 # Vehicles
 
-## Vehicle [/vehicles/{id}]
+## Vehicle [/people/{person_id}/vehicles/{id}]
 
 ### Get Single Vehicle [GET]
 
@@ -269,38 +270,7 @@ Retrieves a single Vehicle
 + Parameters
 
     + id (required, integer, id) - the vehicle id
-
-+ Request 200 (application/json)
-+ Response 200 (application/json)
-    
-    + body
-
-        {
-          "data": {
-                "type": "vehicles",
-                  "id": "1",
-                  "attributes": {
-                    "make": "Fiat",
-                    "model": "Siena",
-                    "year": "2005",
-                    "license-plate": "KMU890",
-                    "created-at": "2016-04-07T19:51:57.918Z",
-                    "updated-at": "2016-04-07T19:51:57.918Z"
-                  }
-              }
-        }
-
-# Vehicles
-
-## Vehicle [/vehicles/{id}]
-
-### Get Single Vehicle [GET]
-
-Retrieves a single Vehicle 
-
-+ Parameters
-
-    + id (required, integer, id) - the vehicle id
+    + person_id (required  integer, person_id) - the person id
 
 + Request 200 (application/json)
 + Response 200 (application/json)
@@ -322,9 +292,14 @@ Retrieves a single Vehicle
               }
             }
 
-## Vehicles [/vehicles]
+## Vehicles [/people/{person_id}/vehicles]
 
 ### Create Vehicle [POST]
+
+
++ Parameters
+
+    + person_id (required  integer, person_id) - the person id
 
 + Request 200 (application/json)
 
@@ -362,6 +337,9 @@ Retrieves a single Vehicle
 
 ### Get vehicle list [GET]
 
++ Parameters
+
+    + person_id (required  integer, person_id) - the person id
 + Request 200 (application/json)
 + Response 200 (application/json)
     

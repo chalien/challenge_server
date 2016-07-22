@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
   def create
-    vehicle = Vehicle.new(vehicle_params)
+    vehicle = person.vehicles.build(vehicle_params)
     if vehicle.save
       render_json_api_serializer vehicle
     else
@@ -17,7 +17,13 @@ class VehiclesController < ApplicationController
     render_json_api_serializer(Vehicle.all, :ok, is_collection: true)
   end
 
+  private
+
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year, :license_plate, :person_id)
+  end
+
+  def person
+    @person ||= Person.find(params[:person_id])
   end
 end
