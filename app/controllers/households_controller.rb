@@ -4,7 +4,7 @@ class HouseholdsController < ApplicationController
     if household.save
       render_json_api_serializer household
     else
-      render json: household.errors
+      render json: JSONAPI::Serializer.serialize_errors(household.errors), status: 422
     end
   end
 
