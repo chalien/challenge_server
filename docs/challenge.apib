@@ -58,6 +58,59 @@ Retrieves a single vehicle
               }
             }
 
+
+### Update household [PUT]
+
+Update a vehicle
+
++ Parameters
+
+    + id (required, integer, id) - the household id
+
++ Request 200 (application/json)
+
+  + Body
+
+        {
+          "household": {
+            "address": "12 Valley Farms Street ",
+            "zip": "20735",
+            "city": "Clinton",
+            "state": "Maryland",
+            "number_of_bedrooms": 2
+          }
+        }
++ Response 201 (application/json)
+    
+    + body
+
+            {
+              "data": {
+                "type": "households",
+                  "id": "1",
+                  "attributes": {
+                    "address": "12 Valley Farms Street ",
+                    "zip": "20735",
+                    "city": "Clinton",
+                    "state": "Maryland",
+                    "number-of-bedrooms": 2,
+                    "created-at": "2016-04-07T19:51:57.918Z",
+                    "updated-at": "2016-04-07T19:51:57.918Z"
+                  },
+                  "relationships": {
+                    "people": {
+                      "data": [
+
+                      ]
+                    },
+                    "vehicles": {
+                      "data": [
+
+                      ]
+                    }
+                  }
+              }
+            }
 ## Households [/households]
 
 ### Create household [POST]

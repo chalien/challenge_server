@@ -46,4 +46,17 @@ describe HouseholdsController do
       response.shall_agree_upon('challenge.apib')
     end
   end
+
+  describe "PUT: update" do
+    let(:household) { FactoryGirl.create(:household, id: 1) }
+    let(:params) { FactoryGirl.attributes_for :household }
+
+    it 'returns a household created'  do
+      Time.stub :now, fake_time do
+        put :update, { params: { household: params , id: household.id }}
+      end
+
+      response.shall_agree_upon('challenge.apib')
+    end
+  end
 end
