@@ -9,7 +9,6 @@ class VehiclesController < ApplicationController
   end
 
   def show
-    vehicle = Vehicle.find(params[:id])
     render_json_api_serializer vehicle
   end
 
@@ -17,7 +16,16 @@ class VehiclesController < ApplicationController
     render_json_api_serializer(Vehicle.all, :ok, is_collection: true)
   end
 
+  def destroy
+    if vehicle.destroy
+      render status: :no_content
+    end
+  end
   private
+
+  def vehicle
+    @vehicle ||=  Vehicle.find(params[:id])
+  end
 
   def vehicle_params
     params.require(:vehicle).permit(:make, :model, :year, :license_plate, :person_id)

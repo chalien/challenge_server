@@ -32,6 +32,19 @@ describe VehiclesController do
     end
   end
 
+  describe "DELETE: destroy" do
+    before do
+      Time.stub :now, fake_time do
+        @vehicle= FactoryGirl.create(:vehicle, id: 1)
+      end
+    end
+
+    it 'removes a vehicle' do
+      delete :destroy, params: { id:  @vehicle.id, person_id: @vehicle.person.id }
+      response.status.must_equal(204)
+    end
+  end
+
   describe "POST: create" do
     let(:params) { FactoryGirl.attributes_for :vehicle, person_id: person.id }
 
